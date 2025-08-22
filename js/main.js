@@ -7,6 +7,14 @@ function loadHeader() {
     });
 }
 
+function loadFooter() {
+  fetch("footer.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+      highlightCurrentPage();
+    });
+}
 function highlightCurrentPage() {
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll(".nav-link a");
@@ -23,3 +31,4 @@ function highlightCurrentPage() {
 }
 
 document.addEventListener("DOMContentLoaded", loadHeader);
+document.addEventListener("DOMContentLoaded", loadFooter);

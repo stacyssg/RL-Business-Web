@@ -5,8 +5,8 @@ div.line{
 }
 
 footer{
-  min-height: 50px;
-  position: fixed;
+
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -20,10 +20,12 @@ footer{
 }
 .home-photos{
 column-count: 2;      /* two columns */
-  column-gap: 800px;     /* gap between columns */
+  column-gap: 700px;     /* gap between columns */
   width: 100%;
-  max-width: 2000px;    /* optional max width */
-  margin:  auto;       /* center the container */
+  max-width: 1800px;    /* optional max width */
+  position: absolute;
+  margin: auto;       /* center the container */
+  
 }
 .home-photos img{
 width: 100%;          /* make image fill column width */
@@ -67,3 +69,70 @@ width: 100%;          /* make image fill column width */
    img.logo{
       border-radius: 100px;
    }
+  form {
+        max-width: 800px; /* Limits the maximum width */
+        width: 90%; /* Takes up 90% of parent width, but no more than 800px */
+        margin: 0 auto;
+    }
+
+    /* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} 
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
