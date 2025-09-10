@@ -18,20 +18,7 @@ footer{
     font-weight: 600; 
     margin-right: -30%;
 }
-.home-photos .col-md-6 {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-.home-photos .row{
-  --bs-gutter-x:100px;
-}
 
-.home-photos img {
-  width: 100%;          /* fill column */
-  display: block;       /* remove inline spacing */
-  margin-bottom: 40px;  /* vertical spacing */
-  border-radius: 10px;  /* optional rounded corners */
-}
 #bannerimagehome{
   width: 100%;
   background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F027%2F099%2F677%2Fnon_2x%2Fbanner-with-a-background-of-isolated-green-grass-ultrarealistic-ar-167-free-photo.jpg&f=1&nofb=1&ipt=a3dae9ba7e04c547c5915be44fc77c91c6158d6200158b13a29f9bd875c17c9e);
