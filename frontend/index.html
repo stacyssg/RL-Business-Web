@@ -1,59 +1,716 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>RoosterLandscaping | San Antonio, Tx</title>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Landscaping Website for Business" />
-  <meta name="keywords" content="Landscaping, Yard, Lawn, business" />
-  <meta name="author" content="Stacy Saucedo" />
-  <meta name="viewport" content="width = device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="30" />
- 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
- 
+    <title>Rooster Landscaping LLC | Premier San Antonio Landscaping Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional landscaping services in San Antonio, TX. Lawn care, tree trimming, sod installation, and complete landscape design.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2d5016;
+            --accent-green: #4a7c59;
+            --light-green: #7cb342;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --background-light: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            padding: 0rem 0;
+        }
+
+        .company-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none !important;
+        }
+
+        .company-tagline {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+        }
+
+        /* Navigation */
+        .navbar-custom {
+            background-color: var(--primary-green);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-custom .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem !important;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            margin: 0 0.2rem;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.8), rgba(74, 124, 89, 0.8)),
+                        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 0;
+            background-color: var(--background-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h4 {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.8), rgba(74, 124, 89, 0.8));
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h5 {
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            padding: 4rem 0;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .btn-outline-light-custom {
+            border: 2px solid white;
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline-light-custom:hover {
+            background-color: white;
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-green);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--light-green);
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--light-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1rem;
+            text-align: center;
+            color: #adb5bd;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  <!--Starting to add details-->
-  <div id="header-placeholder"></div>
-  <script src="main.js"></script>
-  
-  <!--Home Page pictures-->
-  <div id="bannerimagehome">
-  <img src="/Images/rooster_logo.png" alt="Logo" class="center img-fluid" height="auto" style="position: relative; width: 200px;">
-<h3 class="center" style="color: aliceblue;">We will meet your needs</h3>
-</div>
-<div class="container-fluid my-5">
-  <div class="row align-items-start">
-    <!-- Left column -->
-    <div class="col-4 d-flex flex-column align-items-start px-4">
-      <img src="/Images/mainpage_pic.webp" class="mb-4 rounded shadow" style="max-width: 350px;">
-      <img src="/Images/mainpage_pic2.jpeg" class="mb-4 rounded shadow" style="max-width: 350px;">
-    </div>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-section">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <img src="/Images/rooster_logo.png" alt="Rooster Landscaping Logo" height="80" class="img-fluid">
+                    </div>
+                    <div class="col-md-7">
+                        <h1 class="company-name mb-0">Rooster Landscaping LLC</h1>
+                        <p class="company-tagline mb-0">Professional Landscaping Services in San Antonio</p>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <a href="#contact" class="btn btn-primary-custom">
+                            <i class="fas fa-phone me-2"></i>Get Free Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Our Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Center logo -->
-    <div class="col-4 d-flex justify-content-center align-items-center">
-      <img src="/Images/Logo.png" alt="Rooster Landscaping business card" title="Card"
-           class="img-fluid" style="max-height: 450px;">
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Outdoor Space</h1>
+                <p>Professional landscaping services that bring your vision to life. From lawn care to complete landscape design, we've got you covered.</p>
+                <div>
+                    <a href="#contact" class="btn btn-primary-custom btn-lg me-3">Get Started Today</a>
+                    <a href="#services" class="btn btn-outline-light-custom btn-lg">View Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Right column -->
-    <div class="col-4 d-flex flex-column align-items-end px-4">
-      <img src="/Images/mainpage_pic3.webp" class="mb-4 rounded shadow" style="max-width: 350px;">
-      <img src="/Images/mainpage_pic4.jpg" class="mb-4 rounded shadow" style="max-width: 350px;">
-    </div>
-  </div>
-</div>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Professional Services</h2>
+                <p>We offer comprehensive landscaping solutions to keep your property looking its absolute best year-round.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Lawn Care & Maintenance</h4>
+                        <p>Regular mowing, edging, fertilization, and seasonal lawn treatments to keep your grass healthy and green.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4>Tree & Shrub Care</h4>
+                        <p>Professional pruning, trimming, removal, and planting services to enhance your landscape's beauty and safety.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h4>Hardscape Installation</h4>
+                        <p>Custom patios, walkways, retaining walls, and outdoor living spaces designed to complement your home.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4>Irrigation Systems</h4>
+                        <p>Efficient sprinkler system installation and maintenance to keep your landscape properly watered.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Landscape Design</h4>
+                        <p>Complete landscape planning and installation services tailored to your style and budget.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h4>Seasonal Clean-up</h4>
+                        <p>Spring and fall clean-up services including leaf removal, mulching, and garden preparation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!--Learn how to receive information submitted-->
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Recent Projects</h2>
+                <p>Take a look at some of our recent landscaping transformations in the San Antonio area.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="gallery-item">
+                        <img src="/Images/mainpage_pic.webp" alt="Landscape Project 1">
+                        <div class="gallery-overlay">
+                            <h5>Complete Yard Transformation</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="gallery-item">
+                        <img src="/Images/mainpage_pic2.jpeg" alt="Landscape Project 2">
+                        <div class="gallery-overlay">
+                            <h5>Professional Lawn Care</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="gallery-item">
+                        <img src="/Images/mainpage_pic3.webp" alt="Landscape Project 3">
+                        <div class="gallery-overlay">
+                            <h5>Custom Garden Design</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="gallery-item">
+                        <img src="/Images/mainpage_pic4.jpg" alt="Landscape Project 4">
+                        <div class="gallery-overlay">
+                            <h5>Hardscape Installation</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-start">
+                        <h2>About Rooster Landscaping LLC</h2>
+                        <p class="text-start">Your trusted landscaping partner in San Antonio, Texas</p>
+                    </div>
+                    <p class="mb-4">
+                        With over 10 years of experience serving the San Antonio area, Rooster Landscaping LLC has built a reputation for delivering exceptional landscaping services that exceed our customers' expectations. We take pride in transforming outdoor spaces into beautiful, functional landscapes that enhance property value and quality of life.
+                    </p>
+                    <p class="mb-4">
+                        Our team of skilled professionals specializes in everything from routine lawn maintenance to complete landscape design and installation. We believe in using quality materials, proven techniques, and personalized service to ensure every project meets the highest standards.
+                    </p>
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="text-primary">10+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-primary">500+</h4>
+                            <p>Happy Customers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/Images/aboutus_hug.webp" alt="About Rooster Landscaping" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Landscape?</h2>
+            <p class="mb-4">Get your free estimate today and discover why San Antonio homeowners trust Rooster Landscaping LLC.</p>
+            <a href="#contact" class="btn btn-outline-light-custom btn-lg">Contact Us Today</a>
+        </div>
+    </section>
 
-  
- <div id="footer-placeholder"></div>
-  <script src="main.js"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Your Free Quote</h2>
+                <p>Ready to get started? Contact us today for a free consultation and estimate.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form class="bg-light p-4 rounded shadow">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="serviceArea" class="form-label">Service Area</label>
+                                    <select class="form-select" id="serviceArea">
+                                        <option value="">Select area to be serviced</option>
+                                        <option value="frontyard">Front Yard</option>
+                                        <option value="backyard">Back Yard</option>
+                                        <option value="sideyard">Side Yard(s)</option>
+                                        <option value="all">Entire Property</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="services" class="form-label">Services Needed</label>
+                                    <select class="form-select" id="services">
+                                        <option value="">Select primary service</option>
+                                        <option value="lawn">Lawn Care & Maintenance</option>
+                                        <option value="tree">Tree Trimming/Removal</option>
+                                        <option value="sod">Sod Installation</option>
+                                        <option value="planting">Planting & Garden Design</option>
+                                        <option value="mulch">Mulch Installation</option>
+                                        <option value="hardscape">Hardscape/Patio Work</option>
+                                        <option value="other">Other (describe below)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Project Description</label>
+                            <textarea class="form-control" id="description" rows="4" 
+                                placeholder="Please describe your landscaping needs and any specific requirements..."></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary-custom btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Request Free Quote
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-logo">Rooster Landscaping LLC</div>
+                        <p>Professional landscaping services in San Antonio, Texas. Transforming outdoor spaces with quality, reliability, and exceptional customer service.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="mb-3">Contact Information</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> (210) 555-0123</p>
+                            <p><i class="fas fa-envelope"></i> info@roosterlandscaping.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> San Antonio, Texas</p>
+                            <p><i class="fas fa-clock"></i> Mon-Fri: 7AM-6PM, Sat: 8AM-4PM</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="mb-3">Our Services</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-1">Lawn Care & Maintenance</li>
+                            <li class="mb-1">Tree & Shrub Services</li>
+                            <li class="mb-1">Landscape Design</li>
+                            <li class="mb-1">Hardscape Installation</li>
+                            <li class="mb-1">Irrigation Systems</li>
+                            <li class="mb-1">Seasonal Clean-up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rooster Landscaping LLC. All rights reserved. | San Antonio, Texas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you within 24 hours to discuss your project.');
+        });
+    </script>
 </body>
-
 </html>
